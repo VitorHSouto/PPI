@@ -1,0 +1,64 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+  <meta charset="UTF-8">
+  <title>Encadeando requisições assíncronas</title>
+  <style>
+    body {
+      font-family: "Helvetica Neue", Helvetica, Arial, sans-serif;
+      line-height: 1.5rem;
+      background-color: #ddd;
+      color: #555;
+      margin: 0;
+    }
+
+    main {
+      width: 60%;
+      margin: 0;
+      padding: 2% 4%;
+      background-color: #eee;
+
+      position: absolute;
+      top: 50%;
+      left: 50%;
+      transform: translate(-50%, -50%);
+    }
+
+    h1 {
+      font-size: 5rem;
+      text-align: center;
+    }
+  </style>
+</head>
+
+<body>
+
+  <main>
+    <h1 id="climaLocal"></h1>
+  </main>
+
+  <script>
+
+    // OBS: A função não trata todos os erros
+    function buscaClimaLocal() {
+      fetch('https://ipapi.co/json/')
+        .then(response => response.json())
+        .then(data => fetch(`https://goweather.herokuapp.com/weather/${data.city}`))
+        .then(response => response.json())
+        .then(data => {
+          const str = data.temperature + ', ' + data.description;
+          document.getElementById("climaLocal").innerText = str;
+        })
+        .catch(error => console.log(error));
+    }
+
+    window.onload = function () {
+      buscaClimaLocal();
+    }
+
+  </script>
+
+</body>
+
+</html>
