@@ -1,0 +1,74 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+  <meta charset="UTF-8">
+  <title>Teste Geolocation</title>
+  <style>
+    body {
+      font-family: "Helvetica Neue", Helvetica, Arial, sans-serif;
+      line-height: 1.5rem;
+      background-color: #ddd;
+      color: #555;
+      margin: 0;
+    }
+
+    main {
+      width: 60%;
+      margin: 0;
+      padding: 2% 4%;
+      background-color: #eee;
+
+      position: absolute;
+      top: 50%;
+      left: 50%;
+      transform: translate(-50%, -50%);
+    }
+
+    h1 {
+      font-size: 5rem;
+      text-align: center;
+    }
+  </style>
+</head>
+
+<body>
+
+  <main>
+    <h1 id="climaLocal"></h1>
+  </main>
+
+  <script>
+
+    async function buscaClimaLocal() {
+
+      try {
+        // identifica a cidade
+        const response1 = await fetch('https://ipapi.co/json/');
+        if (! response1.ok) throw new Error(response1.statusText);
+        local = await response1.json();
+
+        // busca informações do clima local passando a cidade como parâmetro
+        const response2 = await fetch(`https://goweather.herokuapp.com/weather/${local.city}`);
+        if (! response2.ok) throw new Error(response2.statusText);
+        clima = await response2.json();
+
+        // apresenta as informações do clima
+        const str = clima.temperature + ', ' + clima.description;
+        document.getElementById("climaLocal").innerText = str;
+      }
+      catch (error) {
+        console.log(error);
+        alert('Não foi possível obter a temperatura local');
+      }
+    }
+
+    window.onload = function () {
+      buscaClimaLocal();
+    }
+
+  </script>
+
+</body>
+
+</html>

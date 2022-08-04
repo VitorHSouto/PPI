@@ -1,0 +1,60 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+    <meta charset="UTF-8">
+    <title>Exercício 3</title>
+
+    <style>
+        body{
+            background-color: #ddd;
+            font-family: "Helvetica Neue", Helvetica, sans-serif;
+        }
+        main{
+            background-color: white;
+            max-width: 300px;
+            position: absolute;
+            top: 50%;
+            left: 50%;
+            transform: translate(-50%, -50%);
+            padding: 30px;
+            border-radius: 8px;
+            box-shadow: 0 0 10px gray;
+        }
+        .campo{
+            margin-bottom: 15px;
+            color: #555;
+        }
+        input{
+            width: 100%;
+            padding: 7px;
+            margin-top: 5px;
+            border: 1px solid rgba(128, 128, 128, 0.35);
+            box-sizing: border-box;
+            box-shadow: 0 0 10px rgba(128, 128, 128, 0.7);
+        }
+        button{
+            border: 1px solid rgba(128, 128, 128, 0.35);
+            width: 100%;
+            padding: 8px;
+            margin-top: 12px;
+        }
+    </style>
+</head>
+<body>
+    <main>
+        <form action="cadastra.php" method="post">
+            <div class="campo">
+                <label for="email">Usuário: </label>
+                <input type="email" id="email" name="email" required>
+            </div>
+            <div class="campo">
+                <label for="senha">Senha: </label>
+                <input type="password" id="senha" name="senha" required>
+            </div>
+            <p>
+                <button type="submit">Cadastrar</button>
+            </p>
+        </form>
+    </main>
+</body>
+</html>
