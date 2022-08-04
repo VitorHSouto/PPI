@@ -1,0 +1,153 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <title>Exercício 5</title>
+
+    <style>
+        html, body {
+            margin:0;
+            padding:0;
+            height:100%;
+            width:100%;
+            font-family: 'Trebuchet MS', 'Lucida Sans Unicode', 'Lucida Grande', 'Lucida Sans', Arial, sans-serif;
+        }
+
+        header{
+            top: 0;
+            background-color: #000;
+            color: white;
+            padding-top: 20px;
+            box-shadow: 0px 0px 10px gray;
+        }
+
+        h2{
+            margin: 0;
+            color: white;
+            text-align: center;
+            font-size: 25;
+        }
+
+        body {
+            background-color: #ddd;
+            height: 100%;
+        }
+        
+        .box {
+            display: none;
+            padding: 10px 20px;
+            background-color: white;
+            box-shadow: 0 0 4px rgba(0, 0, 0, 0.311);
+            position: absolute;
+            width: 60%;
+            left: 50%;
+            transform: translateX(-50%);
+        }
+
+        li{
+            font-weight: 400;
+            color: black;
+            display: inline;
+            vertical-align: middle;
+        }
+
+        .active{
+            font-weight: bold;
+            color: blue;
+        }
+
+        ul {
+            list-style: none;
+            background-color: white;
+            box-shadow: 0 0 6px black;
+            text-align: center;
+            padding: 6px 0px;
+        }
+
+        header h2{
+            text-align: center;
+            vertical-align: middle;
+        }
+
+        button{
+            border: none;
+            background: none;
+            margin-right: 10px;
+            color: #000;
+        }
+
+        button:hover{
+            cursor: pointer;
+            opacity: .5;
+        }
+    </style>
+
+</head>
+
+<body>
+    <header>
+        <h2>Faculdade de computação</h1>
+           <nav>
+                <ul>
+                    <li><button class="active" name="CienciaComputacao">Ciência da computação</button>|</li>
+                    <li><button name="Sistemas">Sistemas de informação</button>|</li>
+                    <li><button name="Mestrado">Mestrado</button>|</li>
+                    <li><button name="Doutorado">Doutorado</button></li>
+                </ul>
+           </nav>
+    </header>
+
+    <div id="CienciaComputacao" class="box">
+        <h1>Bacharelado em Ciência da computação</h1>
+        <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Duis consectetur iaculis imperdiet. Sed in semper metus. Quisque aliquet eget ligula ac iaculis. </p>
+        <p>Duis ac elit tortor. Nullam ante nisl, varius nec dictum in, interdum sit amet lacus.</p>
+        <p>Vivamus lobortis vulputate malesuada. Vestibulum blandit nibh finibus, tincidunt est sit amet, egestas ligula. Morbi at massa in turpis lobortis efficitur quis vel nibh.</p>
+    </div>
+
+    <div id="Sistemas" class="box">
+        <h1>Bacharelado em Sistemas de Informação</h1>
+        <p>Duis ac elit tortor. Nullam ante nisl, varius nec dictum in, interdum sit amet lacus.</p>
+        <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Duis consectetur iaculis imperdiet. Sed in semper metus. Quisque aliquet eget ligula ac iaculis. </p>
+        <p>Vivamus lobortis vulputate malesuada. Vestibulum blandit nibh finibus, tincidunt est sit amet, egestas ligula. Morbi at massa in turpis lobortis efficitur quis vel nibh.</p>
+    </div>
+
+    <div id="Mestrado" class="box">
+        <h1>Mestrado</h1>
+        <p>Vivamus lobortis vulputate malesuada. Vestibulum blandit nibh finibus, tincidunt est sit amet, egestas ligula. Morbi at massa in turpis lobortis efficitur quis vel nibh.</p>
+        <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Duis consectetur iaculis imperdiet. Sed in semper metus. Quisque aliquet eget ligula ac iaculis. </p>
+        <p>Duis ac elit tortor. Nullam ante nisl, varius nec dictum in, interdum sit amet lacus.</p>
+    </div>
+
+    <div id="Doutorado" class="box">
+        <h1>Doutorado</h1>
+        <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Duis consectetur iaculis imperdiet. Sed in semper metus. Quisque aliquet eget ligula ac iaculis. </p>
+        <p>Vivamus lobortis vulputate malesuada. Vestibulum blandit nibh finibus, tincidunt est sit amet, egestas ligula. Morbi at massa in turpis lobortis efficitur quis vel nibh.</p>
+        <p>Duis ac elit tortor. Nullam ante nisl, varius nec dictum in, interdum sit amet lacus.</p>
+    </div>
+
+    <script>
+        window.onload = (() => {
+            document.getElementById("CienciaComputacao").style.display = 'block';
+            let buttons = document.querySelectorAll("button");
+
+            buttons.forEach(element => {
+                element.addEventListener('click', () => {
+                    hideOtherElements();
+                    document.getElementById(element.name).style.display = 'block';
+                    element.classList.add('active');
+                })
+            });
+
+            function hideOtherElements(){
+                buttons.forEach(element => {
+                    const elem = document.getElementById(element.name).style.display = 'none';
+                    element.classList.remove('active');
+                });
+            }
+        })
+    </script>
+
+</body>
+
+</html>

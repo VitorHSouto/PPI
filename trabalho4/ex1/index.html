@@ -1,0 +1,121 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+    <meta charset="UTF-8">
+    <title>Currículo de Fulano de Tal</title>
+
+    <style>
+        body {
+            background-color: #ddd;
+            color: #444;
+            font-family: "Helvetica Neue", Helvetica, sans-serif;
+            line-height: 1.5;
+            width: 60%;
+            margin: 0 auto;
+            padding: 20px 40px;
+        }
+        main {
+            background-color: white;
+            padding: 10px 20px;
+            margin: 10px 20px;
+            border-radius: 10px;
+        }
+        section {
+            border-top: 1px solid gray;
+        }
+        h1, h2 {
+            color: rgb(140, 76, 8);
+        }
+    </style>
+
+</head>
+<body>
+    
+    <main>
+        <img width="120" height="120" src="images/foto.png" alt="Foto de perfil">
+        <h1>Fulano de Tal</h1>
+
+        <section>
+            <h2>Perfil</h2>
+            <p>Lorem ipsum dolor sit amet. In inventore nihil eum iure voluptatum quo sint nihil aut quas sit sint quis quo quasi natus qui autem officiis. Ut minima quis ex natus rerum At sapiente eligendi qui voluptates magni eos illo cupiditate.</p>
+            <p>Et corporis aliquam ut voluptas quod sed illo enim sit delectus quidem id enim internos. Aut tempora magni ad laboriosam ducimus ut quod omnis 33 optio doloremque qui fugit libero! At voluptatem incidunt aut nemo culpa qui impedit tempore qui culpa sunt et rerum galisum est tenetur enim eos alias doloribus! Aut deleniti illo At voluptatibus odit qui consequatur provident non commodi amet est sint labore aut dolores enim.</p>
+        </section>
+
+        <section>
+            <h2>Principais Competências</h2>
+            <ul>
+                <li>Curabitur </li>
+                <li>Efficitur </li>
+                <li>Nullam  </li>
+                <li>Lorem</li>
+                <li>Placerat</li>
+            </ul>
+        </section>
+
+        <section>
+            <h2>Formação Acadêmica</h2>
+            <p>Graduação em Economia pela 
+                <a href="https://unipacuberlandia.com.br/">UNIPAC Uberlândia</a> (2025)
+                e mestrado em Administração pela 
+                <a href="https://ufu.br/">Universidade federal de Uberlândia</a> (2030).
+            </p>
+        </section>
+
+        <section>
+            <h2>Experiência Profissional</h2>
+            <ol>
+                <li>Empresa XYZ (2020-2026)
+                    <ul>
+                        <li>Vestibulum lacinia diam id efficitur tincidunt.</li>
+                        <li>Mauris a est quis neque scelerisque blandit eu ut ligula.</li>
+                    </ul>
+                </li>
+                <li>Empresa ABC (2026-2032)
+                    <ul>
+                        <li>Lorem ipsum dolor sit amet, consectetur adipiscing elit.</li>
+                        <li>Donec vitae leo lacinia, euismod ligula sed, convallis urna.</li>
+                        <li>Aenean ac enim ac sapien tincidunt mollis.</li>
+                    </ul>
+                </li>
+            </ol>
+            <a href="experiencia.html">Veja as informações profissionais em detalhes</a>
+        </section>
+
+        <section>
+            <h2>Contato</h2>
+            <address>
+                <p>
+                    <img src="images/endereco.png" width="30" height="30" alt="Icone de localização">
+                    Av. João Naves de Ávila, 2121 - Santa Mônica, Uberlândia - MG, 38408-100  
+                </p>
+            
+                <p>
+                    <img src="images/celular.png" width="30" height="30" alt="Icone de Celular">
+                    <a href="tel:+3412341234">+55 (34) 9 1234-1234</a>
+                </p>
+            
+                <p>
+                    <img src="images/email.png" width="30" height="30" alt="Icone de Mapa">
+                    <a href="mailto:example@ufu.br">example@ufu.br</a>
+                </p>
+            </address>
+        </section>
+    </main>
+
+    <script>
+        window.onload = () => {
+            const title = document.querySelector('h1');
+            title.addEventListener('click', () => {
+                title.textContent = "Dono do currículo";
+            })
+
+            const subtitles = document.querySelectorAll('h2');
+            subtitles.forEach(element => {
+                element.addEventListener('click', () => {
+                    element.textContent = "Obrigado"
+                })
+            });
+        }
+    </script>
+</body>
+</html>

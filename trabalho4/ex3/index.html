@@ -1,0 +1,86 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <title>Exercício 3</title>
+
+    <style>
+        body{
+            margin: 0;
+            padding: 0;
+        }
+
+        main{
+            padding: 0px 40px;
+        }
+
+        .modal {
+            background-color: rgba(0, 0, 0, 0.507);
+            position: fixed;
+            left: 0;
+            top: 0;
+            z-index: 1;
+            width: 100%;
+            height: 100%;
+            display: none;
+        }
+        
+        .modal-content {
+            background-color: white;
+            position: absolute;
+            text-align: center;
+            width: 50%;
+            left: 50%;
+            top: 50%;
+            transform: translate(-50%, -50%);
+
+            border-radius: 10px;
+            padding: 15px;
+        }
+
+        button{
+            width: 100%;
+            padding: 10px;
+            border: none;
+            border-radius: 5px;
+        }
+    </style>
+
+</head>
+
+<body>
+    <main>
+        <h1>Lorem Ipsum</h1>
+        <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Duis consectetur iaculis imperdiet. Sed in semper metus. Vivamus lobortis vulputate malesuada. Vestibulum blandit nibh finibus, tincidunt est sit amet, egestas ligula. Morbi at massa in
+            turpis lobortis efficitur quis vel nibh. Quisque aliquet eget ligula ac iaculis. Duis ac elit tortor. Nullam ante nisl, varius nec dictum in, interdum sit amet lacus.</p>
+        <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Assumenda laudantium accusantium officiis et sunt rerum eum aspernatur amet ipsa ipsam praesentium officia eveniet porro esse distinctio commodi, asperiores nihil quia.</p>
+        <button id="openModal">Mostrar modal</button>
+    </main>
+
+    <div class="modal">
+        <div class="modal-content">
+            <h2>Olá, seja bem vindo!</h2>
+            <button id="closeModal">Fechar modal</button>
+        </div>
+    </div>
+
+    <script>
+        window.onload = function() { // Ao carregar toda a tela ele irá realizar essa função
+            const modal = document.querySelector(".modal"); //Pega o primeiro elemento com classe "modal"
+            const btnClose = document.getElementById("closeModal"); //Pega o elemento com id "closeModal"
+            const btnShowModal = document.getElementById("openModal"); //Pega o elemento com id "openModal"
+
+            btnShowModal.addEventListener('click', function(){ // Adiciona uma função que ao clicar irá ser realizada
+                modal.style.display = 'block'; // muda o estilo do display para o padrão
+            })
+ 
+            btnClose.addEventListener('click', function(){ // Adiciona uma função que ao clicar irá ser realizada
+                modal.style.display = 'none'; // muda o estilo do display para não mostrar
+            })
+        }
+    </script>
+
+</body>
+
+</html>

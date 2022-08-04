@@ -1,0 +1,96 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Exercício 4</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+
+    <style>
+        html, body {
+            margin:0;
+            padding:0;
+            height:100%;
+            width:100%;
+            background-color: #ddd;
+            font-family: "Helvetica Neue", Helvetica, sans-serif;    
+        }
+
+        main{
+            background-color: white;
+            max-width: 300px;
+            position: absolute;
+            top: 50%;
+            left: 50%;
+            transform: translate(-50%, -50%);
+            padding: 30px;
+            border-radius: 8px;
+            box-shadow: 0 0 10px gray;
+        }
+
+        input{
+            padding: 7px;
+        }
+
+        li{
+            width: 230px;
+            padding: 5px 10px 5px 20px;
+            margin: 3px;
+            background-color: rgb(189, 217, 240);
+            border: 0.5px solid rgb(70, 67, 212);
+            border-radius: 3px;
+            margin-bottom: 5px;
+        }
+
+        li > button{
+            font-size: smaller;
+            float: right;
+            color: red;
+            border: none;
+            background-color: transparent;
+            cursor: pointer;
+        }
+    </style>
+</head>
+<body>
+    
+    <main>
+        <div>
+            <label for="interesse">Interesse</label>
+            <input type="text" name="interesse" id="interesse">
+        </div>
+    
+        <ol>
+        </ol>
+    </main>
+
+    <script>
+        window.onload = function(){
+            const campoInteresse = document.querySelector("#interesse");
+            campoInteresse.addEventListener('keyup', (e) => {
+                if(e.key === 'Enter')
+                    adicionaInteresse();
+            });
+        }
+
+        function adicionaInteresse(){
+            const campoInteresse = document.querySelector("#interesse");
+            const listInteresse = document.querySelector("ol");
+            
+            const novoLi = document.createElement("li");
+            const novoSpan = document.createElement("span");
+            const novoBtn = document.createElement("button");
+
+            novoSpan.textContent = campoInteresse.value;
+            novoBtn.textContent = '✖';
+
+            novoLi.appendChild(novoSpan);
+            novoLi.appendChild(novoBtn);
+            listInteresse.appendChild(novoLi);
+
+            novoBtn.onclick = () => listInteresse.removeChild(novoLi);
+
+            campoInteresse.value = '';
+        }
+    </script>
+</body>
+</html>

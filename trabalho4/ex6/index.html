@@ -1,0 +1,111 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+    <meta charset="UTF-8">
+    <title>Formulários em HTML</title>
+
+    <style>
+        body{
+            background-color: #ddd;
+            font-family: "Helvetica Neue", Helvetica, sans-serif;
+        }
+        h6{
+            margin-top: 0;
+        }
+        main{
+            background-color: white;
+            max-width: 300px;
+            position: absolute;
+            top: 50%;
+            left: 50%;
+            transform: translate(-50%, -50%);
+            padding: 30px;
+            border-radius: 8px;
+            box-shadow: 0 0 10px gray;
+        }
+        .campo{
+            margin-bottom: 15px;
+            color: #555;
+        }
+        input{
+            width: 100%;
+            padding: 5px;
+            margin-top: 2px;
+        }
+        button{
+            border: 1px solid rgba(128, 128, 128, 0.35);
+            width: 100%;
+            padding: 8px;
+            margin-top: 12px;
+        }
+
+        span{
+            color: red;
+            font-size: smaller;
+            margin-top: 3px;
+        }
+    </style>
+</head>
+<body>
+    <main>
+        <h4>Cadastro de usuário</h4>
+        <form name="formCadastro" action="login.php" method="post">
+            <div class="campo">
+                <label for="usuario">Usuário: </label>
+                <input type="text" id="usuario" name="usuario" autocomplete="off">
+                <span></span>
+            </div>
+            <div class="campo">
+                <label for="senha">Senha: </label>
+                <input type="password" id="senha" name="senha" >
+                <span></span>
+            </div>
+            <div class="campo">
+                <label for="email">Email: </label>
+                <input type="email" id="email" name="email" autocomplete="off">
+                <span></span>
+            </div>
+            <p>
+                <button type="submit">Enviar</button>
+            </p>
+        </form> 
+    </main>
+
+    <script>
+        window.onload = () => {
+            document.forms.formCadastro.onsubmit = validaForm;
+        }
+
+        function validaForm(e) {
+            let form = e.target;
+            let formValido = true;
+
+            const spanUsuario = form.usuario.nextElementSibling;
+            const spanSenha = form.senha.nextElementSibling;
+            const spanEmail = form.email.nextElementSibling;
+
+            spanUsuario.textContent = "";
+            spanSenha.textContent = "";
+            spanEmail.textContent = "";
+
+            if(form.usuario.value == ""){
+                spanUsuario.textContent = 'O usuario deve ser preenchido';
+                formValido = false;
+            }
+
+            if(form.senha.value == ""){
+                spanSenha.textContent = 'A senha deve ser preenchida';
+                formValido = false;
+            }
+
+            if(form.email.value == ""){
+                spanEmail.textContent = 'O email deve ser preenchido';
+                formValido = false;
+            }
+
+            return formValido;
+        }
+
+    </script>
+</body>
+</html>
